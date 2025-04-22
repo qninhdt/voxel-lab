@@ -6,16 +6,35 @@ namespace vxlab::meta {
 
 template <typename T>
 struct converter {
+  /**
+   * @brief Convert a value to an index.
+   *
+   * This function is not implemented for this type.
+   *
+   * @param value The value to convert
+   *
+   * @return The index of the value
+   */
   usize to_index(const T& value) const {
     static_assert(false, "Converter not implemented for this type");
     return 0;
   }
 
+  /**
+   * @brief Convert an index to a value.
+   *
+   * This function is not implemented for this type.
+   *
+   * @param index The index to convert
+   *
+   * @return The value of the index
+   */
   T to_value(usize index) const {
     static_assert(false, "Converter not implemented for this type");
   }
 };
 
+/// Specialization for bool
 template <typename T>
   requires std::is_integral_v<T>
 struct converter<T> {
@@ -24,6 +43,7 @@ struct converter<T> {
   T to_value(usize index) const { return static_cast<T>(index); }
 };
 
+/// Specialization for enum
 template <typename T>
   requires std::is_enum_v<T>
 struct converter<T> {

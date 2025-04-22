@@ -4,7 +4,8 @@
 #include <fmt/format.h>
 
 #include <functional>
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
+#include <rfl.hpp>
 #include <string>
 #include <type_traits>
 #include <vector>
